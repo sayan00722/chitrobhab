@@ -30,28 +30,6 @@ var swiper = new Swiper(".slide-content", {
   });
 
 
-var TrandingSlider = new Swiper('.tranding-slider', {
-    effect: 'coverflow',
-    grabCursor: true,
-    centeredSlides: true,
-    loop: true,
-    slidesPerView: 'auto',
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 100,
-      modifier: 2.5,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
-  });
-
 
   let menuIcon = document.querySelector('#menu-icon');
   let navbar = document.querySelector('.navbar');
@@ -67,21 +45,6 @@ var TrandingSlider = new Swiper('.tranding-slider', {
   let navLinks = document.querySelectorAll('header nav a');
   
   window.onscroll = () => {
-      sections.forEach(sec => {
-          let top = window.scrollY;
-          let offset = sec.offsetTop - 150;
-          let height = sec.offsetHeight;
-          let id = sec.getAttribute('id');
-  
-          if(top >= offset && top < offset + height) {
-              navLinks.forEach(links => {
-                  links.classList.remove('active');
-                  document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-              });
-          }
-      });
-  let header=document.querySelector('header');
-  header.classList.toggle('sticky',Window.scrollY >= 100);
 
   menuIcon.classList.remove('fa-xmark');
   navbar.classList.remove('active');
@@ -137,28 +100,8 @@ document.addEventListener("DOMContentLoaded", function() {
       },
   });
 
-  // Intersection Observer to trigger autoplay when the section is in view
-  const membersSection = document.getElementById('members');
-  const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              swiper.autoplay.start();
-          } else {
-              swiper.autoplay.stop();
-          }
-      });
-  }, {
-      threshold: 0.5  // Adjust threshold as needed
-  });
-
-  observer.observe(membersSection);
-});
-
-
-
-
+  
 document.getElementById('sending').addEventListener('submit', async function(event) {
-   // Prevent the default form submission
 
   const form = event.target;
   const formData = new FormData(form);
@@ -174,12 +117,19 @@ document.getElementById('sending').addEventListener('submit', async function(eve
 
     // Reset the form fields
     form.reset();
-
-    // Redirect back to the original page
-    window.location.href = window.location.href;
-
   } catch (error) {
     console.error('Error:', error);
   }
 });
 
+
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  loader.classList.add("loader-hidden");
+
+  loader.addEventListener("transitionend", () => {
+      document.body.removeChild(loader);
+  });
+});
+});

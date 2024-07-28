@@ -192,9 +192,6 @@ span {
 }
 
 
-.about-content{
-
-}
 .about-img img {
     width: 35vw;
 }
@@ -481,7 +478,6 @@ span {
     font-size: 2rem;
     color: var(--snd-bg-color);
 }
-
 .contact h2 {
     margin-bottom: 3rem;
 }
@@ -584,9 +580,7 @@ span {
 
 
 @media screen and (max-width: 768px) {
-    .slide-content {
-        
-    }
+    
     .swiper-navBtn {
         display: none;
     }
@@ -770,9 +764,6 @@ span {
     box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
-/* Optionally, adjust the h2 heading size within .about-content */
-.about-content .heading {
-}
 
 /* Ensure responsive design */
 @media (max-width: 768px) {
@@ -783,35 +774,10 @@ span {
         height: auto; /* Remove fixed height */
     }
     .about-content {
-        width: 95%; /* Make it wider on smaller screens for better readability */
+        width: 95%;
         padding: 0.5rem; /* Adjust padding for smaller screens */ /* Adjust font size for smaller screens */
     }
 }
-
-
-
-.slide-container {
-    width: 100%;
-    padding: 4rem 0;
-}
-
-.swiper-wrapper {
-    display: flex;
-}
-
-.swiper-slide {
-    flex-shrink: 0;
-    width: auto;
-}
-
-.swiper-button-next, .swiper-button-prev {
-    color: #fff;
-}
-
-.swiper-pagination-bullet {
-    background-color: var(--main-color);
-}
-
 
 
 
@@ -834,3 +800,4 @@ form button {
 form button:hover {
     box-shadow: none;
 }
+
